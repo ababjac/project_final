@@ -5,5 +5,5 @@ Understand how to code in python- 10
 
 Time Log:
 Date				  Time					      Explanation
-March 25 		  2 hours in lab			Create Rubric and install python3 and pygames
+March 25 		  2 hours in lab			Create rubric and install python3 and pygames
 
