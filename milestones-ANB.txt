@@ -1,0 +1,45 @@
+Milestones-ANB.txt
+Ashley Babjac
+Github link: https://github.com/ababjac/project_final
+
+
+Basic Outline of Project Steps (Entire Project):
+1. Go through PyGame tutorials
+2. Get familiar with PyGame by creating test program
+3. Outline basic app structure in PyGame
+4. Check in with Zoe on development of game logic
+5. Begin to combine game logic with app interface
+6. Error check and test app
+7. Revise app for better functionality
+8. Repeat steps 6 and 7
+
+
+Sprint Plans:
+sprint 1 -- Steps 1-3 above
+sprint 2 -- step 4-5 above
+sprint 3 -- step 6-7 above
+sprint 4 -- step 8 above
+
+
+Project Rubric Breakdown (Sprint 1):
+10 points - prototype (step 3 above) code compiles
+10 points - prototype (step 3 above) code uses PyGame library successfully
+5 points - proof of step 1 and 2 (above) in git repo as init.py
+15 points - proof of step 3 above in git repo as drum_machine_v_0.0 that outlines the basic app structure
+Total: 40 points
+
+
+Time Sheet (until 3/29/19):
+3/20/19 -- 2 hrs -- Went through PyGame tutorials
+3/21/19 -- 2 hrs -- Created a game to test out PyGame functionality (init.py)
+3/25/19 -- 2 hrs -- Worked on milestones.txt and Rubric
+
+
+Summary of Sprint 1:
+...
+
+
+Next Steps Rubric/Plan (Sprint 2):
+1. Meet with Zoe and discuss progress
+2. Begin combining together app and game logic
+3. Begin testing
