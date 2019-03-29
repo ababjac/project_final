@@ -22,7 +22,7 @@ sprint 4 -- step 8 above
 
 
 Project Rubric Breakdown (Sprint 1):
-10 points - prototype (step 3 above) code compiles
+10 points - prototype (step 3 above) code compiles (drum_machine_v_0.0.py)
 10 points - prototype (step 3 above) code uses PyGame library successfully
 5 points - proof of step 1 and 2 (above) in git repo as init.py
 15 points - proof of step 3 above in git repo as drum_machine_v_0.0 that outlines the basic app structure
@@ -33,10 +33,17 @@ Time Sheet (until 3/29/19):
 3/20/19 -- 2 hrs -- Went through PyGame tutorials
 3/21/19 -- 2 hrs -- Created a game to test out PyGame functionality (init.py)
 3/25/19 -- 2 hrs -- Worked on milestones.txt and Rubric
+3/27/19-3/28/19 -- 2 hrs -- Worked on basic app design and researched menus/drop down menu
 
 
 Summary of Sprint 1:
-...
+I began outlining the basic app structure (i.e. where buttons should go). It looks really crummy right now,
+but I am researching libraries that would allow for a "prettier" user interface. I am doing research into
+the PyGameMenu library for a nicer app interface. I am having trouble getting the PyGameMenu code to compile
+for my project, but I will keep error checking over the weekend. I also ran into trouble with the sound .wav files
+throwing seg faults. They open on Zoe's computer with the same exact lines of code, so it might be an error with the
+cloning process. Overall, no major set backs (just a couple minor ones) and the app design is on schedule to be
+completed by mid-end next week, so that Zoe and I can start combining the app design with the app logic.
 
 
 Next Steps Rubric/Plan (Sprint 2):
