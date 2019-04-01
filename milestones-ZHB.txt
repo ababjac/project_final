@@ -1,9 +1,10 @@
-Rubric:
+Rubric 1:
 Create a compiling program that prints something at a time interval- 25
 Understand how to code in python- 10
 4 hours of meaningful work- 5
 
 Time Log:
-Date				  Time					      Explanation
-March 25 		  2 hours in lab			Create rubric and install python3 and pygames
-
+Date			Time				Explanation
+March 25 		2 hours in lab			Create rubric and install python3 and pygames
+March 27		2 hours				Create files in timingTest/ to figure out bpm timing
+March 28		2 hours				Study pygames timing functions and Events to increase accuracy
