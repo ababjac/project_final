@@ -8,7 +8,6 @@ pygame.init()
 
 #create the clock
 clock = pygame.time.Clock()
-clock.tick(60)
 
 #create the sound
 sound = pygame.mixer.Sound('kick.wav')
@@ -24,15 +23,16 @@ signature = 4
 #loop
 b = 0
 n = 0
-clock.tick(60)
 #until enough bars have passed
 while(b < (bars*signature)):
 	#for every (timePassed % secs), play the sound
+	
 	#wait for the amount of time to pass
-	clock.tick(60)
-	while(pygame.time.Clock.get_time() % secs != 0):
+	temp = clock.tick(60)
+	while(int(temp % secs) != 0):
 		#do nothing
-		n = n + 1		
+		temp = clock.tick(60)		
+	
 	#once % is 0, play the sound
 	sound.play()
 	b = b + 1
