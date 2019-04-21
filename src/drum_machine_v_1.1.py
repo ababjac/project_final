@@ -9,7 +9,7 @@ import pygameMenu
 from pygameMenu.locals import *
 
 #menu constants
-ABOUT = ['PygameMenu {0}'.format(' UTK Drum Machine V:0.1'),
+ABOUT = ['PygameMenu {0}'.format(' UTK Drum Machine V:1.1'),
          'Authors: {0}'.format(' Ashley Babjac and Zoe Babyar'),
          PYGAMEMENU_TEXT_NEWLINE,
          'GitHub Repo {0}'.format(" github.com/ababjac/project_final")]

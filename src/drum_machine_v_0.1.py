@@ -13,11 +13,13 @@ ABOUT = ['PygameMenu {0}'.format(' UTK Drum Machine V:0.1'),
          'Authors: {0}'.format(' Ashley Babjac and Zoe Babyar'),
          PYGAMEMENU_TEXT_NEWLINE,
          'GitHub Repo {0}'.format(" github.com/ababjac/project_final")]
-COLOR_BACKGROUND = (224, 224, 224)
+#COLOR_BACKGROUND = (224, 224, 224)
+COLOR_BACKGROUND = (238,238,238)
 COLOR_BLACK = (0, 0, 0)
 COLOR_WHITE = (255, 255, 255)
 FPS = 60.0
-MENU_BACKGROUND_COLOR = (0, 142, 100)
+MENU_BACKGROUND_COLOR = (11,129,118)
+#MENU_BACKGROUND_COLOR = (0, 142, 100)
 WINDOW_SIZE = (800, 600)
 
 #init PyGame

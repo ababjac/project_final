@@ -13,6 +13,7 @@
 ### Simple Set up of graphics with no logic components                #
 #######################################################################
 
+
 import pygame, time, pygameMenu
 pygame.mixer.pre_init(44100, 16, 2, 4096)
 pygame.init()
