@@ -13,11 +13,8 @@ bpm = int(input("Input a BPM: "))
 pygame.mixer.init(frequency= 22050, size= 16, channels = 2, buffer = 1024)
 
 #logic for finding how many seconds between beats
-secs = (60 / bpm) * 1000
-
-#number of sounds
-pygame.mixer.set_num_channels(1);
+secs = int((60 / bpm) * 1000)
 
 #play
-pygame.mixer.Channel(0).play(pygame.mixer.Sound('kick.wav'), loops = -1, maxtime = int(secs), fade_ms = 0)
-
+while(True):
+    pygame.mixer.Channel(0).play(pygame.mixer.Sound('kick.wav'), fade_ms = 0)

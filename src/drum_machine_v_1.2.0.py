@@ -26,8 +26,9 @@ WINDOW_SIZE = (800, 600)
 #init PyGame
 pygame.init()
 
+#------------------------------------------------------------------------------
 #source for sounds https://freewavesamples.com/
-#sound constants FIXME
+#sound constants
 HIHAT = [pygame.mixer.Sound('../sounds2/Closed-Hi-Hat-1.wav'),
          pygame.mixer.Sound('../sounds2/Kawai-K1r-Closed-Hi-Hat.wav'),
          pygame.mixer.Sound('../sounds2/Kawai-K1r-Closed-Hi-Hat.wav'),
@@ -63,16 +64,20 @@ os.environ['SDL_VIDEO_CENTERED'] = '1'
 
 # Create pygame screen and objects
 surface = pygame.display.set_mode(WINDOW_SIZE)
-pygame.display.set_caption('UTK Drum Machine V0.2')
+pygame.display.set_caption('UTK Drum Machine V1.2')
 clock = pygame.time.Clock()
 dt = 1 / FPS
 
+I=[0] #helps in choose_sound
+PAUSE  = False
 BPM = [80]
-SOUND = [HIHAT[0]]
+SOUND = [HIHAT[0]]*8 #number of channels defualt supported
 BARS = [4]
 SIGNATURE = [4]
 
 SECS = 60 / BPM[0]
+LAST = 0
+NOW = 0
 
 # -----------------------------------------------------------------------------
 #GAME LOGIC
@@ -83,7 +88,8 @@ def choose_bpm(t):
 
 def choose_sound(s):
     print ('changing to sound: {0}'.format(s))
-    SOUND[0] = s
+    SOUND[I[0]] = s
+    I[0] += 1
 
 def choose_bars(b):
     print ('selected bars: {0}'.format(b))
@@ -93,26 +99,96 @@ def choose_signature(s):
     print ('selected signature: {0}'.format(s))
     SIGNATURE[0] = s
 
+#def signature_3():
+#    while(True):
+#        NOW = pygame.time.get_ticks()
+#        if(NOW - LAST == SECS[0]):
+#            print("playing 1\n")
+#            pygame.mixer.find_channel(True).play(sound[0])
+#            pygame.time.wait(SECS[0])
+#
+#            if(i >= 1):
+#                print("playing 2\n")
+#                pygame.mixer.find_channel(True).play(SOUND[1])
+#            pygame.time.wait(SECS[0])
+#
+#            if(i >= 2):
+#                print("playing 3\n")
+#                pygame.mixer.find_channel(True).play(SOUND[2])
+#            pygame.time.wait(SECS[0])
+#
+#            LAST = pygame.time.get_ticks()
+
+#def signature_4():
+#    while(True):
+#        NOW = pygame.time.get_ticks()
+#        if(NOW - LAST >= SECS[0]):
+#            print("playing 1\n")
+#            pygame.mixer.find_channel(True).play(SOUND[0])
+#            pygame.time.wait(SECS[0])
+#
+#            if(i >= 1):
+#                print("playing 2\n")
+#                pygame.mixer.find_channel(True).play(SOUND[1])
+#            pygame.time.wait(SECS[0])
+#
+#            if(i >= 2):
+#                print("playing 3\n")
+#                pygame.mixer.find_channel(True).play(SOUND[2])
+#            pygame.time.wait(SECS[0])
+#
+#            if(i >= 3):
+#                print("playing 4\n")
+#                pygame.mixer.find_channel(True).play(SOUND[3])
+#            pygame.time.wait(SECS[0])
+#
+#            LAST = pygame.time.get_ticks()
+
+#------------------------------------------------------------------------------
 def play_function(self, timing, sound):
     print('playing sounds\n')
 
-    b = 0
-    while(b < BARS[0]):
-        b = b + 1
-        s = 0
-        while(s < SIGNATURE[0]):
-            pygame.time.wait(int(1000*SECS))
-            pygame.mixer.Sound.play(SOUND[0])
-            s = s + 1
+    if(PAUSE == True):
+        pygame.mixer.unpause()
+    else:
+        LAST = pygame.time.get_ticks()
 
+        while(True):
+            NOW = pygame.time.get_ticks()
+            if(NOW - LAST >= SECS):
+                print("playing 1\n")
+                pygame.mixer.find_channel(True).play(SOUND[0])
+                pygame.time.wait(int(SECS))
+
+                if(I[0] >= 1):
+                    print("playing 2\n")
+                    pygame.mixer.find_channel(True).play(SOUND[1])
+                    pygame.time.wait(int(SECS))
+
+                if(I[0] >= 2):
+                    print("playing 3\n")
+                    pygame.mixer.find_channel(True).play(SOUND[2])
+                pygame.time.wait(int(SECS))
+
+                if(SIGNATURE[0] == 4):
+                    if(I[0] >= 3):
+                        print("playing 4\n")
+                        pygame.mixer.find_channel(True).play(SOUND[3])
+                    pygame.time.wait(int(SECS))
+
+            LAST = pygame.time.get_ticks()
+#-------------------------------------------------------------------------------
+#stops and pauses
 def stop_function(timing, sound):
     print('stopping sounds\n')
-    pygame.mixer.Sound.stop(SOUND[0])
+    pygame.mixer.stop()
 
 def pause_function(self, timing, sound):
     print('pausing sounds\n')
-    pygame.mixer.Channel.pause()
+    pygame.mixer.pause()
+    PAUSE = True
 
+#-------------------------------------------------------------------------------
 #fills background
 def main_background():
     surface.fill(COLOR_BACKGROUND)
@@ -138,12 +214,11 @@ play_menu = pygameMenu.Menu(surface,
 
 play_menu.add_option('Start', play_function, BPM, SOUND[0],
                  pygame.font.Font(pygameMenu.fonts.FONT_FRANCHISE, 30))
-play_menu.add_option('Stop/Pause', stop_function, BPM, SOUND[0])
+play_menu.add_option('Pause', pause_function, BPM, SOUND[0],
+                 pygame.font.Font(pygameMenu.fonts.FONT_FRANCHISE, 30))
+play_menu.add_option('Stop', stop_function, BPM, SOUND[0])
 play_menu.add_option('Add Another Sound', PYGAME_MENU_BACK)
 play_menu.add_option('Exit', PYGAME_MENU_EXIT)
-#pause will not work until we get to channels and chnage timing to work off events
-#game_menu.add_option('Pause', pause_function, BPM, SOUND[0],
-#                 pygame.font.Font(pygameMenu.fonts.FONT_FRANCHISE, 30))
 
 #------------------------------------------------------------------------------
 #SOUND_TYPE MENU
@@ -165,7 +240,6 @@ sound_type_menu = pygameMenu.Menu(surface,
                         window_width=WINDOW_SIZE[0]
                         )
 
-#FIXME will not compile because changed variable names for sounds
 sound_type_menu.add_option('Next', play_menu, BPM, SOUND[0],
                   pygame.font.Font(pygameMenu.fonts.FONT_FRANCHISE, 30))
 sound_type_menu.add_selector('Hi-Hats', [('Closed Hi-Hat', HIHAT[0]), ('Kawai Hi-Hat', HIHAT[1]),
@@ -233,13 +307,13 @@ timing_menu = pygameMenu.Menu(surface,
 
 timing_menu.add_option('Next', menu_helper,
                   pygame.font.Font(pygameMenu.fonts.FONT_FRANCHISE, 30))
-timing_menu.add_selector('Change BPM', [('80', 80), ('90', 90), ('100', 100), ('110', 110), ('120', 120)],
+timing_menu.add_selector('Change BPM', [('60', 60), ('70', 70), ('80', 80), ('90', 90), ('100', 100)],
                    onreturn=None,
                    onchange=choose_bpm)
 timing_menu.add_selector('Choose Number of Bars', [('1', 1), ('2', 2), ('3', 3), ('4', 4)],
                    onreturn=None,
                    onchange=choose_bars)
-timing_menu.add_selector('Choose Time Signature', [('2/4', 2), ('3/4', 3), ('4/4', 4)],
+timing_menu.add_selector('Choose Time Signature', [('3/4', 3), ('4/4', 4)],
                    onreturn=None,
                    onchange=choose_signature)
 timing_menu.add_option('Return to main menu', PYGAME_MENU_BACK)
