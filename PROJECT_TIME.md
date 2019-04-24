@@ -3,7 +3,7 @@
 
 Meeting Times:
   
-  Date              Explanation                                             Tasks Defined?
+  Date              Explanation                                             Tasks Defined
   3/13/19           Study Python Resources              
   3/25/19           Create rubric, divide project tasks                     Ashley: User-Interface, Zoe: Logic
   3/28/19           Discussed current project status and next steps         Ashley: Create an interface, Zoe: find how to time a sound
