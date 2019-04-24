@@ -10,19 +10,19 @@ Description: Create your own rhythm from a library of sounds, note lengths, and 
 STEP 1: SETTING UP
 1.	Download python 3.7.0
   
-  a.  https://www.python.org/downloads/release/python-370/
+    a.  https://www.python.org/downloads/release/python-370/
   
-  b.	To check that python has installed, type: python --version
+    b.	To check that python has installed, type: python --version
 
 2.	Download pygame
   
-  a.	Enter: pip3 install hg+http://bitbucket.org/pygame/pygame
+    a.	Enter: pip3 install hg+http://bitbucket.org/pygame/pygame
   
-  b.	Enter: import pygame
+    b.	Enter: import pygame
 
 3.	Download pygame-menu
   
-  a.	Enter: pip3 install pygame-Menu
+    a.	Enter: pip3 install pygame-Menu
 
 
 
