@@ -6,6 +6,9 @@ Authors: Ashley Babjac & Zoe Babyar
 Description: Create your own rhythm from a library of sounds, note lengths, and BPM’s
 
 
+
+
+
 STEP 1: SETTING UP
 1.	Download python 3.7.0
   a.  https://www.python.org/downloads/release/python-370/
