@@ -12,7 +12,7 @@ STEP 1: SETTING UP
   
     a.  https://www.python.org/downloads/release/python-370/
   
-    b.	To check that python has installed, type: python --version
+    b.	To check that python has installed, Enter: python --version
 
 2.	Download pygame
   
