@@ -32,25 +32,33 @@ STEP 3: HOW TO RUN	//FIXME
 STEP 4: USING THE PROGRAM
 
 Main Menu:
+  
   •	Navigation: Use the up and down arrow keys to navigate through options. Use the ENTER key to select the option you choose. 
+  
   •	Options:
       o	Begin Drumming!-  Enters the Drum Machine program
       o	About-            Lists the title, authors, and GitHub repository
       o	Quit-             Exits the program
       
 Drum Machine:
+  
   •	Sound Selection: 
       o	The grid is separated into sounds (rows) and 4-beat bars (columns). Sound names are in a list to the left of the grid
         that corresponds to its row. Left-click on a square to select a sound and its place in the rhythm. 
+  
   •	Timing: 
       o	Left-click on a timing square to choose the note spacing. For example, selecting the “1/8” square will turn all      
         selected beats into eighth-notes. 
+  
   •	BPM: 
       o	Left-click to select a BPM square. The BPM determines the speed, in beats per minute, of your rhythm. 
+  
   •	Play/Stop: 
       o	Left-click to begin playback, then left-click again to end playback
+  
   •	Clear: 
       o	Left-click to clear the grid of all selected sounds and rhythms
+  
   •	Return to Main Menu: 
       o	Left-click to return to main menu
 
