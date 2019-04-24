@@ -3,7 +3,7 @@ Project: Drum Machine
 
 Authors: Ashley Babjac & Zoe Babyar
 
-Description: Create your own rhythm from a library of sounds, note lengths, and BPM’s
+Description: Create your own rhythm from a set of sounds, note lengths, and BPM’s
 
 
 
