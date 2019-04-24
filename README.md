@@ -9,12 +9,19 @@ Description: Create your own rhythm from a library of sounds, note lengths, and 
 
 STEP 1: SETTING UP
 1.	Download python 3.7.0
+  
   a.  https://www.python.org/downloads/release/python-370/
+  
   b.	To check that python has installed, type: python --version
+
 2.	Download pygame
+  
   a.	Enter: pip3 install hg+http://bitbucket.org/pygame/pygame
+  
   b.	Enter: import pygame
+
 3.	Download pygame-menu
+  
   a.	Enter: pip3 install pygame-Menu
 
 
@@ -25,7 +32,9 @@ STEP 2: GITHUB NAVIGATION //FIXME
 
 
 STEP 3: HOW TO RUN	//FIXME
+  
   1.	To see code: vi drum_machine_v_2.0.0.py
+  
   2.	To run: python3 drum_machine_v_2.0.0.py
 
 
