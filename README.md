@@ -7,8 +7,6 @@ Description: Create your own rhythm from a library of sounds, note lengths, and 
 
 
 
-
-
 STEP 1: SETTING UP
 1.	Download python 3.7.0
   a.  https://www.python.org/downloads/release/python-370/
@@ -38,7 +36,7 @@ STEP 4: USING THE PROGRAM
 
 Main Menu:
   
-  •	Navigation: Use the up and down arrow keys to navigate through options. Use the ENTER key to select the option you choose. 
+  •	Navigation: Use the up and down arrow keys to navigate through options. Use the ENTER key to select an option. 
   
   •	Options:
       
@@ -53,12 +51,12 @@ Drum Machine:
   •	Sound Selection: 
       
       o	The grid is separated into sounds (rows) and 4-beat bars (columns). Sound names are in a list to the left of the grid
-        that corresponds to its row. Left-click on a square to select a sound and its place in the rhythm. 
+        which each correspond to a row. Left-click on a square to select a sound and its place in the rhythm. 
   
   •	Timing: 
       
-      o	Left-click on a timing square to choose the note spacing. For example, selecting the “1/8” square will turn all      
-        selected beats into eighth-notes. 
+      o	Left-click on a Timing square to choose the note spacing. For example, selecting the “1/8” square will turn all      
+        selected sounds into eighth-notes. 
   
   •	BPM: 
       
