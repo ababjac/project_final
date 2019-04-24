@@ -22,6 +22,7 @@ COLOR_PURPLE = (67,6,71)
 COLOR_BLUE = (32,147,150)
 COLOR_BURG = (129,11,22)
 COLOR_TEAL = (11, 129, 118)
+COLOR_DARK_TEAL = (10, 71, 65)
 
 #window constant
 WINDOW_SIZE = (1150, 525)
@@ -105,18 +106,18 @@ class CenteredText(object):
         xoffset = (self.w-width) // 2 #offset rectangles
         yoffset = (self.h-height) // 2
         self.coords = self.x + xoffset, self.y + yoffset
-        self.txt = font.render(text, True, (0, 0, 0))
+        self.txt = font.render(text, True, color)
 
     #draw a button to the screen
     def draw(self, screen):
         Rect = (self.x, self.y, self.w, self.h)
-        pygame.draw.rect(screen, self.color, Rect, self.border)
+        pygame.draw.rect(screen, COLOR_BLACK, Rect, self.border)
         screen.blit(self.txt, self.coords)
 
     #return the rectangle that will act as border for buttons
     def get_border_rect(self):
         Rect1 = (self.x, self.y, self.w, self.h)
-        R = pygame.draw.rect(screen, (0, 0, 0), Rect1, self.border)
+        R = pygame.draw.rect(screen, COLOR_BLACK, Rect1, self.border)
         return R
 
     #helper
@@ -149,17 +150,22 @@ border_dict = {}
 button_number = 0
 for x in range(182, 1142, 30):
     for y in range(120, 460, 30):
-        button_dict['button%s' % button_number] = button('', x, y, 20, 20, False, COLOR_BLUE, COLOR_TEAL, 0)
+        button_dict['button%s' % button_number] = button('', x, y, 20, 20, False, COLOR_BLUE, COLOR_DARK_TEAL, 0)
         border_dict['border%s' % button_number] = button('', x, y, 19, 19, False, COLOR_BURG, COLOR_BURG, 2)
         button_number += 1
 
 #initialize buttons for timing
 button_dict['start_button'] = button('Play/Stop', 50, 25, 120, 79, False, COLOR_BURG, COLOR_PURPLE, 0)
-button_dict['Clear'] = button('Clear', 717, 25, 120, 79, False, COLOR_BURG, COLOR_PURPLE, 0) #FIXME want to add return to main menu button
-button_dict['4'] = button('1/4', 422, 50, 50, 50, False, COLOR_BURG, COLOR_PURPLE, 0)
-button_dict['8'] = button('1/8', 482, 50, 50, 50, False, COLOR_BURG, COLOR_PURPLE, 0)
-button_dict['16'] = button('1/16', 542, 50, 50, 50, False, COLOR_BURG, COLOR_PURPLE, 0)
-button_dict['32'] = button('1/32', 602, 50, 50, 50, False, COLOR_BURG, COLOR_PURPLE, 0)
+button_dict['Clear'] = button('Clear', 717, 25, 120, 38, False, COLOR_BURG, COLOR_PURPLE, 0)
+button_dict['Return'] = button('Return to Main Menu', 717, 65, 120, 38, False, COLOR_BURG, COLOR_PURPLE, 0)
+button_dict['4'] = button('1/4', 452, 50, 50, 50, False, COLOR_BURG, COLOR_PURPLE, 0) #422
+button_dict['8'] = button('1/8', 512, 50, 50, 50, False, COLOR_BURG, COLOR_PURPLE, 0)
+button_dict['16'] = button('1/16', 572, 50, 50, 50, False, COLOR_BURG, COLOR_PURPLE, 0)
+button_dict['32'] = button('1/32', 632, 50, 50, 50, False, COLOR_BURG, COLOR_PURPLE, 0)
+button_dict['60'] = button('60', 210, 50, 50, 50, False, COLOR_BURG, COLOR_PURPLE, 0) #180
+button_dict['80'] = button('80', 270, 50, 50, 50, False, COLOR_BURG, COLOR_PURPLE, 0)
+button_dict['100'] = button('100', 330, 50, 50, 50, False, COLOR_BURG, COLOR_PURPLE, 0)
+button_dict['120'] = button('120', 390, 50, 50, 50, False, COLOR_BURG, COLOR_PURPLE, 0)
 
 #initialize sounds
 sample_dict = {}
@@ -186,13 +192,12 @@ for x in range (177, 1080, 120):
 
 #initialize labels for drum machine buttons
 label_dict = {}
-label_dict['BPM'] = CenteredText('BPM', 20, 237, 25, 120, 20, COLOR_BLACK, 1)
-label_dict['BPM erase'] = CenteredText('', 50, 238, 46, 118, 59, COLOR_BACKGROUND, 0)
-label_dict['BPM#'] = CenteredText('100', 50, 237, 46, 120, 59, COLOR_BURG, 1)
-label_dict['Timing'] = CenteredText('Timing', 20, 417, 25, 240, 20, COLOR_BLACK, 1)
-label_dict['Length of border'] = CenteredText('', 20, 417, 46, 240, 59, COLOR_BLACK, 1)
-label_dict['Title'] = CenteredText('UTK Drum Machine V-2.0', 30, 897, 25, 240, 59, COLOR_BLACK, 1)
-label_dict['By'] = CenteredText('By: Ashley and Zoe', 24, 897, 85, 240, 19, COLOR_BURG, 1)
+label_dict['BPM'] = CenteredText('BPM', 20, 206, 25, 240, 20, COLOR_BLACK, 1) #176
+label_dict['Timing'] = CenteredText('Timing', 20, 447, 25, 240, 20, COLOR_BLACK, 1) #417
+label_dict['border1'] = CenteredText('', 20, 447, 46, 240, 59, COLOR_BLACK, 1)
+label_dict['border2'] = CenteredText('', 20, 206, 46, 240, 59, COLOR_BLACK, 1)
+label_dict['Title'] = CenteredText('UTK Drum Machine V-2.0', 25, 897, 25, 240, 59, COLOR_BLACK, 1)
+label_dict['By'] = CenteredText('By: Ashley Babjac and Zoe Babyar', 15, 897, 85, 240, 19, COLOR_BLACK, 1)
 label_dict['Bass_Drum1'] =  CenteredText('Bass Drum 1', 14, 50, 120, 120, 20, COLOR_PURPLE, 1)
 label_dict['Bass Drum2'] = CenteredText('Bass Drum 2', 14, 50, 150, 120, 20, COLOR_PURPLE, 1)
 label_dict['Tom1'] = CenteredText('Electro Tom', 14, 50, 180, 120, 20, COLOR_PURPLE, 1)
@@ -207,6 +212,34 @@ label_dict['DryKick'] = CenteredText('Dry Kick', 14, 50, 420, 120, 20, COLOR_PUR
 label_dict['DeepKick'] = CenteredText('Deep Kick', 14, 50, 450, 120, 20, COLOR_PURPLE, 1)
 
 #-------------------------------------------------------------------------------
+#helper function to clear and stop all sounds currently selected
+def clear(sound_queue_dict):
+    if button_dict['Clear'].is_pushed():
+        for q in range (0, 384):
+            q_str = (str(q))
+            if button_dict['button%s' % q_str].is_pushed():
+                button_dict['button%s' % q_str].push()
+                button_dict['button%s' % q_str].draw(screen)
+                if 'button%s' % q_str in sound_queue_dict:
+                     del sound_queue_dict['button%s' % q_str]
+        button_dict['Clear'].push()
+        button_dict['Clear'].draw(screen)
+
+#-------------------------------------------------------------------------------
+#returns the user to the main menu FIXME
+def return_to_main(sound_queue_dict):
+    clear(sound_queue_dict)
+
+    if button_dict['Return'].is_pushed():
+        button_dict['Return'].push()
+
+    if button_dict['start_button'].is_pushed():
+        button_dict['start_button'].push()
+
+    main_loop()
+
+#-------------------------------------------------------------------------------
+#runs the drum machine
 def play_function():
     print('playing sounds\n')
 
@@ -232,15 +265,21 @@ def play_function():
 
     #helper constants
     button_counter_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    sound_queue_dict['32'] = 0
+    timing_list =  ['4', '8', '16', '32']
+    timing_list_copy = ['4', '8', '16', '32']
+    bpm_list = ['60', '80', '100', '120']
+    bpm_list_copy = ['60', '80', '100', '120']
+    BPM = 120
+    milliseconds_per_step = 0
+    change_timer = True
+
+    #initialize timing buttons on screen
     button_dict['32'].push()
     button_dict['32'].draw(screen)
-    sound_queue_dict['32'] = 0
-    beats_per_bar_list =  ['4', '8', '16', '32']
-    beats_per_bar_list_copy = ['4', '8', '16', '32']
-    BPM = 100
-    BPM_text = '100' #FIXME having a problem with BPM update
-    BPM_text2 = ''
-    change_timer = True
+
+    button_dict['120'].push()
+    button_dict['120'].draw(screen)
 
     while True: # game loop
          #get the mouse position for button clicks
@@ -248,7 +287,7 @@ def play_function():
 
          #if the BPM was changed
          if change_timer:
-              for x in beats_per_bar_list:
+              for x in timing_list:
                   if button_dict[x].is_pushed():
                       x_int = int(x)
                       divisor = x_int // 4
@@ -258,23 +297,17 @@ def play_function():
               pygame.time.set_timer(pygame.USEREVENT, milliseconds_per_step)
               change_timer = False
 
-         #reset all pushed buttons
-         if button_dict['Clear'].is_pushed():
-             for q in range (0, 384):
-                 q_str = (str(q))
-                 if button_dict['button%s' % q_str].is_pushed():
-                     button_dict['button%s' % q_str].push()
-                     button_dict['button%s' % q_str].draw(screen)
-                     if 'button%s' % q_str in sound_queue_dict:
-                         del sound_queue_dict['button%s' % q_str]
-             button_dict['Clear'].push()
-             button_dict['Clear'].draw(screen)
+         #clear buttons
+         clear(sound_queue_dict)
+
+         #go back to main menu
+         if button_dict['Return'].is_pushed():
+             return_to_main(sound_queue_dict)
 
          #check user button presses or mouse mvt
          for event in pygame.event.get():
             if event.type == pygame.QUIT:   #allows for user to quit
                 pygame.quit() #exit game
-                return
 
             #use timer set earlier
             if event.type == pygame.USEREVENT:  #timer
@@ -303,7 +336,9 @@ def play_function():
                 else:
                     button_counter_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
+            #update pressed button
             if event.type == pygame.MOUSEBUTTONDOWN:
+                #button for sounds
                 for k in button_dict:
                     if button_dict[k].button_rect().collidepoint(mouse_pos):
                         button_dict[k].push()
@@ -313,36 +348,31 @@ def play_function():
                         else:
                             del sound_queue_dict[k]
 
-                for i in beats_per_bar_list:
+                #update button for timing
+                for i in timing_list:
                     if button_dict[i].button_rect().collidepoint(mouse_pos):
-                        beats_per_bar_list_copy.remove(i)
-                        for l in beats_per_bar_list_copy:
+                        timing_list_copy.remove(i)
+                        print(i)
+                        for l in timing_list_copy:
                             if button_dict[l].is_pushed():
                                 button_dict[l].push()
                                 button_dict[l].draw(screen)
                         change_timer = True
-                        beats_per_bar_list_copy = ['4', '8', '16', '32']
+                        timing_list_copy = ['4', '8', '16', '32']
 
-            if event.type == pygame.KEYDOWN:
-                if event.key in number_keys:
-                    if len(BPM_text2) < 4:
-                        BPM_text2 += number_keys[event.key]
-                    print(BPM_text2)
-                    if len(BPM_text2) == 3:
-                        BPM_text_int = int(BPM_text2)
-                        if BPM_text_int > 200:
-                            BPM_text2 = '200'
-                        if BPM_text_int < 100:
-                            BPM_text2 = str(BPM_text_int)
-                        if BPM_text_int < 20:
-                            BPM_text2 = '20'
-                        BPM_text = BPM_text2
-                        BPM_text2 = ''
-                        label_dict['BPM erase'].draw(screen)
-                        label_dict['BPM#'] = CenteredText(BPM_text, 50, 178, 46, 118, 59, COLOR_BLACK, 1)
-                        label_dict['BPM#'].draw(screen)
-                        BPM = int(BPM_text)
+                #update button for bpm
+                for i in bpm_list:
+                    if button_dict[i].button_rect().collidepoint(mouse_pos):
+                        bpm_list_copy.remove(i)
+                        BPM = int(i)
+                        print(BPM)
+                        for l in bpm_list_copy:
+                            if button_dict[l].is_pushed():
+                                button_dict[l].push()
+                                button_dict[l].draw(screen)
                         change_timer = True
+                        bpm_list_copy = ['60', '80', '100', '120']
+
 
          #update display
          pygame.display.flip()
@@ -357,7 +387,7 @@ about_menu = pygameMenu.TextMenu(screen,
                                  font_color=COLOR_BLACK,
                                  font_size_title=30,
                                  font_title=pygameMenu.fonts.FONT_8BIT,
-                                 menu_color=COLOR_TEAL,
+                                 menu_color=COLOR_BLUE,
                                  menu_color_title=COLOR_WHITE,
                                  menu_height=int(WINDOW_SIZE[1] * 0.8),
                                  menu_width=int(WINDOW_SIZE[0] * 0.8),
@@ -375,7 +405,7 @@ for m in ABOUT:
 about_menu.add_line(PYGAMEMENU_TEXT_NEWLINE)
 about_menu.add_option('Return to menu', PYGAME_MENU_BACK)
 
-#------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # MAIN MENU
 main_menu = pygameMenu.Menu(screen,
                             bgfun=main_background,
@@ -386,8 +416,8 @@ main_menu = pygameMenu.Menu(screen,
                             menu_alpha=100,
                             menu_color=COLOR_TEAL,
                             menu_color_title=COLOR_BURG,
-                            menu_height=int(WINDOW_SIZE[1] * 0.9),
-                            menu_width=int(WINDOW_SIZE[0] * 0.9),
+                            menu_height=int(WINDOW_SIZE[1] * 0.92),
+                            menu_width=int(WINDOW_SIZE[0] * 0.92),
                             onclose=PYGAME_MENU_DISABLE_CLOSE,
                             option_shadow=False,
                             title='Main menu',
@@ -398,26 +428,31 @@ main_menu.add_option('Begin Drumming!', play_function) #call the drum function
 main_menu.add_option('About', about_menu) #author info
 main_menu.add_option('Quit', PYGAME_MENU_EXIT) #exit game
 
-
 # -----------------------------------------------------------------------------
 # MAIN LOOP
 # run through menu's to choose options
-while True:
+def main_loop():
+    while True:
 
-    # Tick
-    clock.tick(60)
+        # Tick
+        clock.tick(60)
 
-    # Application events
-    events = pygame.event.get()
-    for event in events:
-        if event.type == QUIT:
-            exit()
+        # Application events
+        events = pygame.event.get()
+        for event in events:
+            if event.type == QUIT:
+                exit()
 
-    # Main menu
-    main_menu.mainloop(events)
+            # Main menu
+            main_menu.mainloop(events)
 
-    # Flip surface
-    pygame.display.flip()
+        # Flip surface
+        pygame.display.flip()
+
+#-------------------------------------------------------------------------------
+#MAIN EXECUTION
+#run game
+main_loop()
 
 #end game
 pygame.quit()
