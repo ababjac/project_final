@@ -290,7 +290,8 @@ def play_function():
               for x in timing_list:
                   if button_dict[x].is_pushed():
                       x_int = int(x)
-                      divisor = x_int // 4
+                      BPM_text = 'x';
+		      divisor = x_int // 4
                       BPM_in_milliseconds = 50000 // BPM #update BPM
                       milliseconds_per_step = BPM_in_milliseconds // divisor
               #time the drum beats
