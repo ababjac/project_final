@@ -86,5 +86,5 @@ Drum Machine:
 
 
 
-KNOWN BUGS
-  1.	After approximately 20 seconds of playback (only sometimes), the rhythm falls slightly off-beat then quickly readjusts. In talking to our TA, Brent Hurst, we determined that these slight timing errors may be a python issue as opposed to a program logic issue. 
+KNOWN BUGS  //FIXME
+  1.	 
