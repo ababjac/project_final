@@ -38,9 +38,9 @@ Time Log: Ashley Babjac
   4/22/19           Discussed logic bugs & hold-ups                     1
   4/22/19           Work on logic for channels                          3
   4/23/19           Combine logic into application                      5
-  4/24/19           Bug fixes                                           3
-  4/2/19            Final tweaks and documentation                      2
-                                                                Total:  38 hrs
+  4/24/19           Bug fixes and documentation                         4
+  4/25/19           Final tweaks                                        2
+                                                                Total:  39 hrs
 
 
  Time Log: Zoe Babyar  
