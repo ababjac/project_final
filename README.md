@@ -86,3 +86,6 @@ Drum Machine:
 
 KNOWN BUGS
   1. On SOME Linux machines (like mine -- Mint Cinnamon 19.1), the error "ALSA lib pcm.c:8306:(snd_pcm_recover) underrun occurred" will pop up in the terminal during run time. This does not affect the running or functionality of the program. It has to do with the type of sound player that is the default on the machine and is not actually a problem with our program, but should be noted.
+  
+NOTES
+    1. For this program we used Python version 3.7.0; however, it will be compatable with newer versions of python. It should also work for any version of Python 3 (but I have not tested this). It is not compatable with Python versions 1 or 2. 
