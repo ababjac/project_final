@@ -26,18 +26,16 @@ STEP 1: SETTING UP
 
 
 
+STEP 2: GITHUB NAVIGATION
+
+The finished app is in the finished_app folder. It is called drum_machine_v_2.0.0.py. Previous development versions are under the development folders (some of these do not compile but the code can be referenced).
 
 
-STEP 2: GITHUB NAVIGATION //FIXME
-
-
-STEP 3: HOW TO RUN	//FIXME
+STEP 3: HOW TO RUN
 
   1.	To see code: vi drum_machine_v_2.0.0.py
 
   2.	To run: python3 drum_machine_v_2.0.0.py
-
-
 
 
 
@@ -86,5 +84,5 @@ Drum Machine:
 
 
 
-KNOWN BUGS  //FIXME
-  1.	 
+KNOWN BUGS
+  1. On SOME Linux machines (like mine -- Mint Cinnamon 19.1), the error "ALSA lib pcm.c:8306:(snd_pcm_recover) underrun occurred" will pop up in the terminal during run time. This does not affect the running or functionality of the program. It has to do with the type of sound player that is the default on the machine and is not actually a problem with our program, but should be noted.
