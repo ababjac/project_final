@@ -33,9 +33,9 @@ The finished app is in the finished_app folder. It is called drum_machine_v_2.0.
 
 STEP 3: HOW TO RUN
 
-  1.	To see code: vi drum_machine_v_2.0.0.py
+  1.	To see code: vi finished_app/drum_machine_v_2.0.0.py
 
-  2.	To run: python3 drum_machine_v_2.0.0.py
+  2.	To run: cd finished_app; python3 drum_machine_v_2.0.0.py
 
 
 
